@@ -1,0 +1,149 @@
+info:
+  description: "ChaiPay Assignment"
+  version: "1.0.0"
+  title: "ChaiPay Assignment Stripe Integration"
+  contact:
+    name: "Dhairy Tripathi"
+    email: "dhairytripathi@gmail.com"
+host: "localhost:5000"
+basePath: "/api/v1"
+schemes:
+  - "http"
+paths:
+  /health:
+    get:
+      description: "Health check for the server"
+      operationId: "H idealth"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Health check"
+          schema:
+            $ref: "#/definitions/Health"
+  /get_intents:
+    get:
+      description: "Get all payment intents stored in the database"
+      operationId: "GetPaymentIntents"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Get all payment intents"
+          schema:
+            $ref: "#/definitions/PaymentIntent"
+
+  /create_intent:
+    post:
+      description: "Create a payment intent for the given amount"
+      operationId: "CreateIntent"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          description: "Payment intent request object"
+          required: true
+          schema:
+            $ref: "#/definitions/PaymentIntentRequest"
+      responses:
+        200:
+          description: "Payment intent created"
+          schema:
+            $ref: "#/definitions/PaymentIntent"
+  /capture_intent:
+    post:
+      description: "Capture a payment intent for the given payment intent id"
+      operationId: "CaptureIntent"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          description: "Payment intent request object"
+          required: true
+          schema:
+            $ref: "#/definitions/PaymentIntentRequest"
+      responses:
+        200:
+          description: "Payment intent captured"
+          schema:
+            $ref: "#/definitions/PaymentCapture"
+
+  /create_refund:
+    post:
+      description: "Create a refund for a given payment intent id"
+      operationId: "CreateRefund"
+      produces:
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          description: "Refund object"
+          required: true
+          schema:
+            $ref: "#/definitions/Refund"
+      responses:
+        200:
+          description: "Refund created"
+          schema:
+            $ref: "#/definitions/Refund"
+
+definitions:
+  Health:
+    type: object
+    properties:
+      status:
+        type: string
+        description: "Health status"
+  PaymentIntent:
+    type: object
+    properties:
+      id:
+        type: string
+        description: "Payment intent id"
+      amount:
+        type: integer
+        description: "Payment intent amount"
+      created_at:
+        type: integer
+        description: "Payment intent created date"
+      captured:
+        type: boolean
+        description: "Payment intent captured status"
+      refunded:
+        type: boolean
+        description: "Payment intent refunded status"
+      refund_id:
+        type: string
+        description: "Payment intent refund id"
+      charge_id:
+        type: string
+        description: "Payment intent charge id"
+  PaymentIntentRequest:
+    type: object
+    properties:
+      id:
+        type: string
+        description: "Payment intent id"
+      amount:
+        type: integer
+        description: "Payment intent amount"
+  PaymentCapture:
+    type: object
+    properties:
+      status:
+        type: string
+        description: "Http status code"
+      message:
+        type: string
+        description: "Payment capture message"
+  Refund:
+    type: object
+    properties:
+      status:
+        type: string
+        description: "Http status code"
+      message:
+        type: string
+        description: "Refund message"

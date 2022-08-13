@@ -12,9 +12,9 @@ import (
 	"log"
 	"net/http"
 
-	"hexdecimal16/chaipay-assignment/config"
-	"hexdecimal16/chaipay-assignment/database"
-	"hexdecimal16/chaipay-assignment/src/models"
+	"github.com/hexdecimal16/chaipay-assignment/config"
+	"github.com/hexdecimal16/chaipay-assignment/database"
+	"github.com/hexdecimal16/chaipay-assignment/src/models"
 
 	"github.com/gin-gonic/gin"
 

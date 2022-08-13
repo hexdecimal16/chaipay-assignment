@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"hexdecimal16/chaipay-assignment/config"
+	"github.com/hexdecimal16/chaipay-assignment/config"
 
 	_ "github.com/go-sql-driver/mysql"
 

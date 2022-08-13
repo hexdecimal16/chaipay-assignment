@@ -8,7 +8,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"hexdecimal16/chaipay-assignment/src/models"
+	"github.com/hexdecimal16/chaipay-assignment/src/models"
 
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"

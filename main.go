@@ -5,9 +5,9 @@ import (
 
 	gin "github.com/gin-gonic/gin"
 
-	"hexdecimal16/chaipay-assignment/database"
-	"hexdecimal16/chaipay-assignment/src/models"
-	"hexdecimal16/chaipay-assignment/src/routes"
+	"github.com/hexdecimal16/chaipay-assignment/database"
+	"github.com/hexdecimal16/chaipay-assignment/src/models"
+	"github.com/hexdecimal16/chaipay-assignment/src/routes"
 )
 
 func main() {

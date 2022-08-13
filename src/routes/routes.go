@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"hexdecimal16/chaipay-assignment/src/controllers"
+	"github.com/hexdecimal16/chaipay-assignment/src/controllers"
 
 	"github.com/gin-gonic/gin"
 )
